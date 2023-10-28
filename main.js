@@ -1,21 +1,21 @@
-const container = document.querySelector(".container");
-
-function showCustomers(clients) {
-  for (let customers of clients) {
-    // create customerCard div //
-    let customerCard = document.createElement("div");
-    customerCard.classList.add("customer");
-    container.appendChild(customerCard);
-    // customer picture //
-    let customerImage = document.createElement("img");
-    customerImage.classList.add("image");
-    customerImage.src = `${customers.picture.large}`;
-    customerCard.appendChild(customerImage);
-    // customer name div //
-    let customerName = document.createElement("div");
-    customerName.classList.add("name");
-    customerName.innerText = `${customers.name.first} ${customers.name.last}`;
-    customerCard.appendChild(customerName);
-  }
+const entryPoint = document.querySelector(".customer-container");
+// creat fx that pulls info into container and fixes name issue //
+function customerToHTML(customer) {
+  let customerName = customer.name.first.charAt(0).toUpperCase() + customer.name.first.slice(1) + " " + customer.name.last.charAt(0).toUpperCase() + customer.name.last.slice(1);
+  // make card that displays info //
+  return `<div class ="customer-card">
+            <img src ="${customer.picture.large}" class="customerHeadshot">
+            <h2 class ="customer-name">${customerName}</h2>
+            <a href="mailto:${customer.email}" class="email">${customer.email}</a>
+            <ul class ="customer-info">
+              <li class ="addressLine1">${customer.location.street.number} ${customer.location.street.name}</li>
+              <li class ="addressLine2">${customer.location.city}, ${nameToAbbr(customer.location.state)} ${customer.location.postcode}</li>
+              <li class="dob">DOB: ${moment(customer.dob.date).format("MMM D, YYYY")}</li>
+              <li class="regSince">Customer Since: ${moment(customer.registered.date).format("MMM D, YYYY")}</li>
+            </ul>
+          </div>`;
 }
-showCustomers(customers);
+
+let allCustomers = customers.map((customer) => customerToHTML(customer)).join("\n");
+
+entryPoint.innerHTML = allCustomers;

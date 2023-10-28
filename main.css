@@ -1,5 +1,79 @@
-header{ 
-color: brown;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+body{
+    font-family: 'Inter';
+    font-size: 14px;
+}
+
+
+
+* {
+
+
+  margin: 0;
+  padding: 0;
+  
+  }
+  
+
+  
+  .customer-container{
+display: flex;
+flex-wrap: wrap ;
+justify-content: center;
+font-family: ;
+
+  }
+
+  .customer-card {
+align-items: center;
+text-align: center;
+margin: 30px;
+
+
+  }
+
+  .customerHeadshot {
+border-radius: 33% 67% 35% 65% / 32% 69% 31% 68% 
+
+  }
+
+  .customer-name {
+    padding: 10px;
+
+
+
+
+  }
+
+h1 {
+padding-left: 80px;
+padding-top: 20px;
 
 
 }
+
+.email {
+color: gray;
+text-decoration: none;
+
+}
+
+.addressLine1 {
+margin-top: 10px;
+
+
+}
+
+.dob {
+margin-top: 10px;
+
+}
+
+ul {
+list-style: none;
+
+
+}
+
